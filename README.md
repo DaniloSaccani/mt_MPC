@@ -12,7 +12,7 @@ The control algorithm is described in the article **insert article here**.
 [![mt-MPC matlab simulation](img/multi-traj.jpg)](https://www.youtube.com/watch?v=V0cSYErvVtQ)
 
 ## Scheme of the packages
-![scheme of mt-MPC package](img/11_gbeam_scheme.png "packages scheme")
+![scheme of mt-MPC package](img/mpc_scheme.png "packages scheme")
 This scheme represents the interactions between the packages:
 Package `s1000_interface` is used to interact with the lower level controller of the drone (a DJI S1000, controlled with a DJI A3 board) and the LiDAR sensor.
 Package `mpc_s1000_controller` is where the control algorithm is actually implemented.
