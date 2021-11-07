@@ -6,7 +6,7 @@ The control algorithm is described in the article **insert article here**.
 ## Test videos
 
 ### mt-MPC experimental Tests, ROS + Octocopter Drone
-[![mt-MPC experimental test](img/test.png)](https://www.youtube.com/watch?v=0suE8IxzbC0)
+[![mt-MPC experimental test](img/mt_test.png)](https://www.youtube.com/watch?v=0suE8IxzbC0)
 
 ### mt-MPCsimulation on MatLab/Simulink
 [![mt-MPC matlab simulation](img/multi-traj.jpg)](https://www.youtube.com/watch?v=V0cSYErvVtQ)
