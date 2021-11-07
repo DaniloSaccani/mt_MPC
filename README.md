@@ -9,7 +9,7 @@ The control algorithm is described in the article **insert article here**.
 [![mt-MPC experimental test](img/test.png)](https://www.youtube.com/watch?v=0suE8IxzbC0)
 
 ### mt-MPCsimulation on MatLab/Simulink
-[![mt-MPC matlab simulation](img/sim.png)](https://www.youtube.com/watch?v=9D0L84BI0Cg)
+[![mt-MPC matlab simulation](img/multi-traj.JPG)](https://www.youtube.com/watch?v=9D0L84BI0Cg)
 
 ## Scheme of the packages
 ![scheme of mt-MPC package](img/11_gbeam_scheme.png "packages scheme")
