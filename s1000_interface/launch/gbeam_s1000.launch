@@ -1,0 +1,13 @@
+<launch>
+
+  <remap from="gbeam/gbeam_pos_ref" to="s1000_interface/pos_ref"/>
+
+  <include file="$(find s1000_interface)/launch/gbeam_s1000_parameters.launch"/>
+
+	<include file="$(find s1000_interface)/launch/s1000_interface.launch"/>
+
+  <node pkg="s1000_interface" type="gbeam_flight_manager" name="gbeam_flight_manager" output="screen"/>
+
+	<include file="$(find gbeam_controller)/launch/gbeam_controller.launch"/>
+
+</launch>

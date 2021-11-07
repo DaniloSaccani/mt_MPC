@@ -1,0 +1,39 @@
+<launch>
+
+<!-- GBEAM ROBOT PARAMETERS / OBSTACLE AVOIDANCE-->
+	<param name="/gbeam_controller/robot_param/safe_dist" value="2" type="double" />
+	<param name="/gbeam_controller/obstacle_avoidance/obstacle_spd_tol" value="1" type="double" />
+
+<!-- GBEAM POLYTOPE GENERATION -->
+	<param name="/gbeam_controller/polytope_generation_param/rate" value="2" type="double" />
+  <param name="/gbeam_controller/polytope_generation_param/num_vertices" value="8" type="int" />
+  <param name="/gbeam_controller/polytope_generation_param/start_distance" value="0.6" type="double" />
+  <param name="/gbeam_controller/polytope_generation_param/distance_step" value="0.1" type="double" />
+  <param name="/gbeam_controller/polytope_generation_param/vertex_obstacle_dist" value="0.2" type="double" />
+
+<!-- GBEAM GRAPH UPDATE -->
+  <param name="/gbeam_controller/graph_update_param/node_dist_min" value="0.5" type="double" />
+  <param name="/gbeam_controller/graph_update_param/node_dist_open" value="2" type="double" />
+  <param name="/gbeam_controller/graph_update_param/node_bound_dist" value="1.6" type="double" />
+
+<!-- GBEAM EXPLORATION -->
+	<param name="/gbeam_controller/exploration_param/reached_tol" value="0.8" type="double" />
+	<param name="/gbeam_controller/exploration_param/limit_xi" value="-2" type="double" />
+	<param name="/gbeam_controller/exploration_param/limit_xs" value="25" type="double" />
+	<param name="/gbeam_controller/exploration_param/limit_yi" value="-2" type="double" />
+	<param name="/gbeam_controller/exploration_param/limit_ys" value="40" type="double" />
+
+	<param name="/gbeam_controller/exploration_param/distance_exp" value="5" type="double" />
+
+	<param name="/gbeam_controller/exploration_param/mapping_z" value="3" type="double" />
+
+<!-- S1000 POSITION CONTROL -->
+	<param name="/s1000_interface/position_controller/K_pos_xy" value="0.6" type="double" />
+	<param name="/s1000_interface/position_controller/K_pos_z" value="0.6" type="double" />
+	<param name="/s1000_interface/position_controller/K_yaw" value="0.6" type="double" />
+	<param name="/s1000_interface/position_controller/spd_filter" value="0.03" type="double" />
+	<param name="/s1000_interface/position_controller/vel_max" value="1" type="double" />
+	<param name="/s1000_interface/position_controller/yaw_rate_max" value="2" type="double" />
+
+
+</launch>

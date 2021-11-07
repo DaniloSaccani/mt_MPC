@@ -1,0 +1,58 @@
+<launch>
+	<node pkg="dji_sdk" type="dji_sdk_node" name="dji_sdk" output="screen">
+		<param name="acm_name" type="string" value="/dev/ttyACM0"/>
+		<param name="serial_name" type="string" value="/dev/ttyUSB0"/>
+		<param name="baud_rate" type="int" value="921600"/>
+		<param name="app_id" type="int" value="1078928"/>
+		<param name="app_version" type="int" value="1"/>
+		<param name="align_time" type="bool" value="false"/>
+		<param name="enc_key" type="string" value="c2eedcfa1e0d1c524394a114434e8dbcdaccb753f0ad9c3a7185c2affc5ead53"/>
+		<param name="use_broadcast" type="bool" value="false"/>
+	</node>
+	<node name="sick_tim_back" pkg="sick_tim" type="sick_tim551_2050001" respawn="false" output="screen">
+			<param name="min_ang" type="double" value="-2.35619449019" />
+			<param name="max_ang" type="double" value="2.35619449019" />
+			<param name="intensity" type="bool" value="false" />
+			<param name="skip" type="int" value="0" />
+			<param name="frame_id" type="str" value="lidar_back" />
+			<param name="time_offset" type="double" value="-0.001" />
+			<param name="publish_datagram" type="bool" value="False" />
+			<param name="subscribe_datagram" type="bool" value="false" />
+			<param name="device_number" type="int" value="0" />
+			<param name="time_increment" type="double" value="0.000061722" />
+			<param name="range_min" type="double" value="0.05" />
+			<param name="range_max" type="double" value="10.0" />
+			<remap from="scan" to="scan_back" />
+	</node>
+	<node name="sick_tim_front" pkg="sick_tim" type="sick_tim551_2050001" respawn="false" output="screen">
+			<param name="min_ang" type="double" value="-2.35619449019" />
+			<param name="max_ang" type="double" value="2.35619449019" />
+			<param name="intensity" type="bool" value="false" />
+			<param name="skip" type="int" value="0" />
+			<param name="frame_id" type="str" value="lidar_front" />
+			<param name="time_offset" type="double" value="-0.001" />
+			<param name="publish_datagram" type="bool" value="False" />
+			<param name="subscribe_datagram" type="bool" value="false" />
+			<param name="device_number" type="int" value="1" />
+			<param name="time_increment" type="double" value="0.000061722" />
+			<param name="range_min" type="double" value="0.05" />
+			<param name="range_max" type="double" value="10.0" />
+			<remap from="scan" to="scan_front" />
+	</node>
+	<node pkg="s1000_interface" type="tf2_publisher" name="s1000_tf2_publisher"/>
+		<!--Arguments of tf: x y z, y p r, frame, child, interval [ms]
+			first translation, then rotation-->
+	<node pkg="tf" type="static_transform_publisher" name="lidar_back_2_map_tf" args="-0.085 0 -0.2 0 3.1415 0 body_FLU lidar_back 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="lidar_front_2_map_tf" args="0.085 0 -0.2 3.1415 3.1415 0 body_FLU lidar_front 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="lidar_2_map_tf" args="0 0 -0.2 1.5708 3.1415 0 body_FLU base_scan 100"/>
+
+
+	<node pkg="s1000_interface" type="lidar_merger" name="front_back_lidar_merger"/>
+
+	<node pkg="s1000_interface" type="bag_recorder" name="s1000_bag_recorder"/>
+
+	<node pkg="s1000_interface" type="position_controller_mpc" name="position_controller" output="screen"/>
+
+	<node pkg="s1000_interface" type="obstacle_avoidance" name="obstacle_avoidance" output="screen"/>
+
+</launch>
