@@ -1,0 +1,11 @@
+<launch>
+
+  <include file="$(find mpc_s1000_controller)/launch/mpc_s1000_parameters.launch"/>
+
+  <node name="polytope_gen" pkg="mpc_s1000_controller" type="polytope_matrices_generation" />
+  <node name="polytope_viewer" pkg="mpc_s1000_controller" type="polytope_matrices_viewer" />
+  <node name="mtMPC" pkg="mpc_s1000_controller" type="mtMPC_inputVar.py" output="screen" respawn="true"/>
+  <!-- <node name="targetGen" pkg="mpc_s1000_controller" type="mtMPC_rc_target_generator"/> -->
+  <node name="targetGen_global" pkg="mpc_s1000_controller" type="mtMPC_target_generator.py"/> 
+  <node name="explor_target" pkg="mpc_s1000_controller" type="mtMPC_exploration_target.py"/>
+</launch>

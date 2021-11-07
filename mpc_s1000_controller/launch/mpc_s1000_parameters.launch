@@ -1,0 +1,22 @@
+<launch>
+
+<!-- S1000 POSITION CONTROL -->
+	<param name="/s1000_interface/position_controller/K_pos_xy" value="0.6" type="double" />
+	<param name="/s1000_interface/position_controller/K_pos_z" value="0.6" type="double" />
+	<param name="/s1000_interface/position_controller/K_yaw" value="0.6" type="double" />
+	<param name="/s1000_interface/position_controller/vel_max" value="1" type="double" />
+	<param name="/s1000_interface/position_controller/yaw_rate_max" value="2" type="double" />
+
+<!-- GBEAM ROBOT PARAMETERS / OBSTACLE AVOIDANCE-->
+	<param name="/gbeam_controller/robot_param/safe_dist" value="2" type="double" />
+	<param name="/gbeam_controller/obstacle_avoidance/obstacle_spd_tol" value="1" type="double" />
+
+<!-- POLYTOPE GENERATION -->
+  <param name="/polytope_generation_param/num_vertices" value="6" type="int" />
+  <param name="/polytope_generation_param/start_distance" value="0.6" type="double" />
+  <param name="/polytope_generation_param/distance_step" value="0.1" type="double" />
+  <param name="/polytope_generation_param/reduction_dist" value="2.5" type="double" />
+
+  <param name="/polytope_generation_param/rate" value="5" type="double" />
+
+</launch>
