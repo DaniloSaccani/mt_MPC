@@ -1,0 +1,11 @@
+<launch>
+	
+	<remap from="mtMPC/mtMPC_pos_ref" to="s1000_interface/pos_ref"/>
+
+	<include file="$(find s1000_interface)/launch/s1000_interface_mpc.launch"/>
+
+	<node pkg="s1000_interface" type="mpc_flight_manager" name="mpc_flight_manager" output="screen"/>
+
+	<include file="$(find mpc_s1000_controller)/launch/mpc_s1000_controller_rc_targ.launch"/> 
+
+</launch>
